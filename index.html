@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WANG STORE — Pricelist Robux</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            padding: 20px;
+            color: #fff;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(0, 255, 255, 0.45), transparent 50%),
+                radial-gradient(circle at 80% 10%, rgba(255, 0, 128, 0.45), transparent 50%),
+                radial-gradient(circle at 50% 90%, rgba(136, 0, 255, 0.45), transparent 50%),
+                linear-gradient(180deg, #05071a 0%, #0b102b 45%, #05071a 100%);
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 30px 25px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+        }
+
+        .header-images {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 15px;
+        }
+
+        .header-images img {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.6));
+        }
+
+        header h1 {
+            font-size: 2rem;
+            color: #ffd700;
+            margin-bottom: 8px;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.35);
+        }
+
+        header p.subtitle {
+            color: #a0a0a0;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-bar {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+        }
+
+        .order-btn {
+            display: inline-block;
+            background: linear-gradient(90deg, #ffd700, #ffaa00);
+            color: #000000;
+            padding: 14px 32px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            margin: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .order-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.7);
+        }
+
+        .channel-link {
+            display: inline-block;
+            background: linear-gradient(90deg, #25D366, #128C7E);
+            color: #ffffff;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            margin: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .channel-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.6);
+        }
+
+        .note-section {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.08), rgba(255, 165, 0, 0.08));
+            border: 1px solid rgba(255, 215, 0, 0.25);
+            border-radius: 16px;
+            padding: 18px 22px;
+            margin-bottom: 20px;
+        }
+
+        .note-section h3 {
+            color: #ffd700;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .note-section p {
+            color: #e0e0e0;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .services-section {
+            background: rgba(0, 200, 100, 0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(0, 200, 100, 0.2);
+            padding: 20px 25px;
+            margin-bottom: 20px;
+        }
+
+        .services-section h3 {
+            color: #00fa78;
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+
+        .services-section p {
+            color: #ccc;
+            font-size: 0.95rem;
+            line-height: 2;
+        }
+
+        .category-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .category-header {
+            background: linear-gradient(90deg, #e6b800, #ffd700);
+            color: #000;
+            padding: 14px 25px;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 12px 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        td:first-child {
+            font-weight: 500;
+            color: #ffffff;
+        }
+
+        td:last-child {
+            color: #ffd700;
+            font-weight: 600;
+            text-align: right;
+        }
+
+        .fee-section {
+            background: rgba(255, 215, 0, 0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            padding: 20px 25px;
+            margin-bottom: 20px;
+        }
+
+        .fee-section h3 {
+            color: #ffd700;
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+
+        .payment-section {
+            background: rgba(100, 150, 255, 0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(100, 150, 255, 0.2);
+            padding: 20px 25px;
+            margin-bottom: 20px;
+        }
+
+        .payment-section h3 {
+            color: #7fa9ff;
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+
+        .groups-section {
+            background: rgba(37, 211, 102, 0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(37, 211, 102, 0.2);
+            padding: 25px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .groups-section h3 {
+            color: #25D366;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .group-link {
+            display: inline-block;
+            background: linear-gradient(90deg, #25D366, #128C7E);
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            margin: 6px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: 100%;
+            max-width: 280px;
+        }
+
+        .group-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.6);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 25px;
+            color: #777;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(0, 200, 100, 0.2);
+            color: #00fa78;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-left: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-images">
+                <img src="https://cdn-icons-png.flaticon.com/512/5034/5034628.png" alt="Robux">
+                <img src="https://cdn-icons-png.flaticon.com/512/3072/3072726.png" alt="Robot">
+            </div>
+            <h1>🏪 WANG STORE — ROBUX</h1>
+            <p class="subtitle">══════════════════════════</p>
+            <p>✅ Terpercaya &nbsp;|&nbsp; ⚡ Proses Cepat</p>
+            
+            <div class="contact-bar">
+                <div class="contact-item">💬 WA: 0895-0331-2050</div>
+                <div class="contact-item">🎮 Discord: ciomuda</div>
+            </div>
+
+            <!-- ✅ TOMBOL ORDER SEKARANG -->
+            <a href="https://wa.me/6289503312050?text=Halo%21%20Saya%20ingin%20order%20Robux%20di%20WANG%20STORE" target="_blank" class="order-btn">
+                🛒 ORDER SEKARANG
+            </a>
+            <br><br>
+            
+            <!-- ✅ TOMBOL SALURAN WHATSAPP -->
+            <a href="https://whatsapp.com/channel/0029Vb7vsHf3mFXy5m3Lqo1u" target="_blank" class="channel-link">
+                📢 Ikuti Saluran WhatsApp
+            </a>
+        </header>
+
+        <!-- CATATAN PENTING -->
+        <div class="note-section">
+            <h3>📌 CATATAN PENTING</h3>
+            <p>Halaman ini hanya untuk melihat daftar harga pricelist saja. Klik tombol <strong>"ORDER SEKARANG"</strong> di atas untuk langsung terhubung ke WhatsApp kami. Atau hubungi langsung via WhatsApp: 0895-0331-2050 / Discord: ciomuda. Jangan lupa join saluran WhatsApp dan grup kami untuk update terbaru!</p>
+        </div>
+
+        <!-- LAYANAN KAMI -->
+        <div class="services-section">
+            <h3>📋 LAYANAN KAMI</h3>
+            <p>✅ • Convert<br>✅ • Topup<br>✅ • Midman</p>
+        </div>
+
+        <!-- ROBUX VIA SEND -->
+        <div class="category-section">
+            <div class="category-header">📦 ROBUX VIA SEND <span class="badge">Username</span></div>
+            <table>
+                <tr><td>🔹 100 Robux</td><td>Rp 14.000</td></tr>
+                <tr><td>🔹 200 Robux</td><td>Rp 28.000</td></tr>
+                <tr><td>🔹 300 Robux</td><td>Rp 42.000</td></tr>
+                <tr><td>🔹 400 Robux</td><td>Rp 56.000</td></tr>
+                <tr><td>🔹 500 Robux</td><td>Rp 70.000</td></tr>
+                <tr><td>🔹 600 Robux</td><td>Rp 84.000</td></tr>
+                <tr><td>🔹 700 Robux</td><td>Rp 98.000</td></tr>
+                <tr><td>🔹 800 Robux</td><td>Rp 112.000</td></tr>
+                <tr><td>🔹 900 Robux</td><td>Rp 126.000</td></tr>
+                <tr><td>🔹 1.000 Robux</td><td>Rp 140.000</td></tr>
+            </table>
+        </div>
+
+        <!-- ROBUX GIG -->
+        <div class="category-section">
+            <div class="category-header">📦 ROBUX GIG <span class="badge">Per Satuan</span></div>
+            <table>
+                <tr><td>🔹 1 Robux</td><td>Rp 85</td></tr>
+            </table>
+        </div>
+
+        <!-- ROBUX PAYOUT -->
+        <div class="category-section">
+            <div class="category-header">📦 ROBUX PAYOUT <span class="badge">Grup</span></div>
+            <table>
+                <tr><td>🔹 100 Robux</td><td>Rp 12.000</td></tr>
+                <tr><td>🔹 200 Robux</td><td>Rp 24.000</td></tr>
+                <tr><td>🔹 300 Robux</td><td>Rp 36.000</td></tr>
+                <tr><td>🔹 400 Robux</td><td>Rp 48.000</td></tr>
+                <tr><td>🔹 500 Robux</td><td>Rp 60.000</td></tr>
+                <tr><td>🔹 600 Robux</td><td>Rp 72.000</td></tr>
+                <tr><td>🔹 700 Robux</td><td>Rp 84.000</td></tr>
+                <tr><td>🔹 800 Robux</td><td>Rp 96.000</td></tr>
+                <tr><td>🔹 900 Robux</td><td>Rp 108.000</td></tr>
+                <tr><td>🔹 1.000 Robux</td><td>Rp 120.000</td></tr>
+            </table>
+        </div>
+
+        <!-- ROBUX TCC / Gamepass -->
+        <div class="category-section">
+            <div class="category-header">📦 ROBUX TCC / Gamepass <span class="badge">Tercepat</span></div>
+            <table>
+                <tr><td>🔹 1.000 Robux</td><td>Rp 75.000</td></tr>
+                <tr><td>🔹 2.000 Robux</td><td>Rp 150.000</td></tr>
+                <tr><td>🔹 3.000 Robux</td><td>Rp 225.000</td></tr>
+                <tr><td>🔹 4.000 Robux</td><td>Rp 300.000</td></tr>
+                <tr><td>🔹 5.000 Robux</td><td>Rp 375.000</td></tr>
+                <tr><td>🔹 10.000 Robux</td><td>Rp 750.000</td></tr>
+            </table>
+        </div>
+
+        <!-- ROBUX LOGIN -->
+        <div class="category-section">
+            <div class="category-header">📦 ROBUX LOGIN <span class="badge">Akun Kamu</span></div>
+            <table>
+                <tr><td>🔹 100 Robux</td><td>Rp 15.000</td></tr>
+                <tr><td>🔹 200 Robux</td><td>Rp 30.000</td></tr>
+                <tr><td>🔹 300 Robux</td><td>Rp 45.000</td></tr>
+                <tr><td>🔹 400 Robux</td><td>Rp 60.000</td></tr>
+                <tr><td>🔹 500 Robux</td><td>Rp 75.000</td></tr>
+                <tr><td>🔹 600 Robux</td><td>Rp 90.000</td></tr>
+                <tr><td>🔹 700 Robux</td><td>Rp 100.000</td></tr>
+                <tr><td>🔹 800 Robux</td><td>Rp 120.000</td></tr>
+                <tr><td>🔹 900 Robux</td><td>Rp 135.000</td></tr>
+                <tr><td>🔹 1.000 Robux</td><td>Rp 150.000</td></tr>
+            </table>
+        </div>
+
+        <!-- FEE MIDMAN -->
+        <div class="fee-section">
+            <h3>💸 FEE MIDMAN</h3>
+            <table>
+                <tr><td>1K — 50K</td><td>Rp 2.000</td></tr>
+                <tr><td>50K — 100K</td><td>Rp 3.000</td></tr>
+                <tr><td>100K — 250K</td><td>Rp 4.000</td></tr>
+                <tr><td>250K — 500K</td><td>Rp 5.000</td></tr>
+                <tr><td>500K — 1JT</td><td>Rp 10.000</td></tr>
+                <tr><td>1JT — 10JT</td><td>Rp 25.000</td></tr>
+            </table>
+        </div>
+
+        <!-- PAYMENT -->
+        <div class="payment-section">
+            <h3>💎 METODE PEMBAYARAN</h3>
+            <p style="color:#ccc; line-height:2;">✅ DANA (IDR)<br>✅ QRIS (Semua Pembayaran)<br>✅ PAYPAL (USD)<br>✅ CRYPTO (Semua Jaringan)</p>
+        </div>
+
+        <!-- ✅ LINK GRUB WHATSAPP — PALING BAWAH -->
+        <div class="groups-section">
+            <h3>👾 JOIN GRUB KAMI</h3>
+            <a href="https://chat.whatsapp.com/F5Yf1PK3z27EpRuAKZHJpW" target="_blank" class="group-link">
+                💬 STORE ROBUX V1
+            </a>
+            <br><br>
+            <a href="https://chat.whatsapp.com/Bxrw1A50qZ47fbd4W0hL6H" target="_blank" class="group-link">
+                💬 STORE ROBUX V2
+            </a>
+        </div>
+
+        <footer>
+            <p>⚠️ Harga dapat berubah sewaktu-waktu</p>
+            <p>⏰ Jam Operasional: 08.00 — 23.00 WIB</p>
+            <p style="margin-top: 15px; color: #ffd700; font-weight: 600; font-size: 1.1rem;">🏪 WANG STORE — Semua Kebutuhan Robux Kamu</p>
+        </footer>
+    </div>
+</body>
+  </html>
+              
