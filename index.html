@@ -1,440 +1,369 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WANG STORE — Pricelist Robux</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WANG STORE | Pricelist Robux</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
 
-        body {
-            min-height: 100vh;
-            padding: 20px;
-            color: #fff;
-            background:
-                radial-gradient(circle at 20% 20%, rgba(0, 255, 255, 0.45), transparent 50%),
-                radial-gradient(circle at 80% 10%, rgba(255, 0, 128, 0.45), transparent 50%),
-                radial-gradient(circle at 50% 90%, rgba(136, 0, 255, 0.45), transparent 50%),
-                linear-gradient(180deg, #05071a 0%, #0b102b 45%, #05071a 100%);
-            background-attachment: fixed;
-        }
+body {
+  background: #0b0b18;
+  color: #fff;
+  padding: 20px;
+}
 
-        .container {
-            max-width: 700px;
-            margin: 0 auto;
-        }
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #141428;
+  border-radius: 16px;
+  box-shadow: 0 0 20px #7b2cbf50;
+  overflow: hidden;
+}
 
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-            padding: 30px 25px;
-            background: rgba(255, 255, 255, 0.06);
-            border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(12px);
-        }
+/* ===== BANNER ===== */
+.banner-wrap {
+  position: relative;
+  height: 360px;
+  background: linear-gradient(135deg, #001133, #4b0082, #001133);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
 
-        .header-images {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 25px;
-            margin-bottom: 15px;
-        }
+/* Scanline CRT */
+.scanline {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.08) 2px,
+    transparent 4px
+  );
+  animation: scanMove 4s linear infinite;
+  z-index: 1;
+}
 
-        .header-images img {
-            width: 64px;
-            height: 64px;
-            object-fit: contain;
-            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.6));
-        }
+@keyframes scanMove {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(120px); }
+}
 
-        header h1 {
-            font-size: 2rem;
-            color: #ffd700;
-            margin-bottom: 8px;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.35);
-        }
+/* Noise TV */
+.noise {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='256' height='256' viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+  animation: noiseFlicker 0.2s infinite;
+  z-index: 2;
+  pointer-events: none;
+}
 
-        header p.subtitle {
-            color: #a0a0a0;
-            font-size: 1rem;
-            margin-bottom: 15px;
-        }
+@keyframes noiseFlicker {
+  0%, 100% { opacity: 0.08; }
+  50% { opacity: 0.15; }
+}
 
-        .contact-bar {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
+/* ⭐ Bintang JS */
+.star-random {
+  position: absolute;
+  font-size: 18px;
+  color: #ffdd00;
+  text-shadow: 0 0 14px #ffdd00;
+  z-index: 2;
+  animation: starAnim 2.2s ease forwards;
+}
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.08);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.95rem;
-        }
+@keyframes starAnim {
+  0% { opacity: 0; transform: scale(0.5); }
+  30% { opacity: 1; transform: scale(1.2); }
+  100% { opacity: 0; transform: scale(0.3); }
+}
 
-        .order-btn {
-            display: inline-block;
-            background: linear-gradient(90deg, #ffd700, #ffaa00);
-            color: #000000;
-            padding: 14px 32px;
-            border-radius: 30px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            text-decoration: none;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-            margin: 8px;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
+/* Teks banner */
+.banner-text {
+  position: relative;
+  z-index: 4;
+  text-align: center;
+}
 
-        .order-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px rgba(255, 215, 0, 0.7);
-        }
+.banner-text h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: #00ffff;
+  text-shadow: 0 0 8px #00ffff, 0 0 16px #9d4edd;
+  animation: blinkNeon 1.2s alternate infinite;
+}
 
-        .channel-link {
-            display: inline-block;
-            background: linear-gradient(90deg, #25D366, #128C7E);
-            color: #ffffff;
-            padding: 12px 28px;
-            border-radius: 30px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            margin: 8px;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
+.banner-text p {
+  font-size: 1.2rem;
+  color: #ff00ff;
+  margin-top: 10px;
+  animation: blinkSlow 2s alternate infinite;
+}
 
-        .channel-link:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(37, 211, 102, 0.6);
-        }
+@keyframes blinkNeon {
+  0% { opacity: 0.8; text-shadow: 0 0 8px #00ffff; }
+  100% { opacity: 1; text-shadow: 0 0 22px #9d4edd; }
+}
 
-        .note-section {
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.08), rgba(255, 165, 0, 0.08));
-            border: 1px solid rgba(255, 215, 0, 0.25);
-            border-radius: 16px;
-            padding: 18px 22px;
-            margin-bottom: 20px;
-        }
+@keyframes blinkSlow {
+  0% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
 
-        .note-section h3 {
-            color: #ffd700;
-            margin-bottom: 10px;
-            font-size: 1rem;
-        }
+/* ===== KONTEN UTAMA ===== */
+.content {
+  padding: 30px;
+}
 
-        .note-section p {
-            color: #e0e0e0;
-            font-size: 0.95rem;
-            line-height: 1.8;
-        }
+h2 {
+  text-align: center;
+  color: #a855f7;
+  margin-bottom: 18px;
+}
 
-        .services-section {
-            background: rgba(0, 200, 100, 0.05);
-            border-radius: 16px;
-            border: 1px solid rgba(0, 200, 100, 0.2);
-            padding: 20px 25px;
-            margin-bottom: 20px;
-        }
+h3 {
+  margin: 24px 0 12px;
+  color: #d8b4fe;
+}
 
-        .services-section h3 {
-            color: #00fa78;
-            margin-bottom: 12px;
-            font-size: 1rem;
-        }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+}
 
-        .services-section p {
-            color: #ccc;
-            font-size: 0.95rem;
-            line-height: 2;
-        }
+th, td {
+  padding: 10px;
+  border: 1px solid #333355;
+  text-align: center;
+}
 
-        .category-section {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 20px;
-            overflow: hidden;
-        }
+th {
+  background: #252542;
+  color: #e9d5ff;
+}
 
-        .category-header {
-            background: linear-gradient(90deg, #e6b800, #ffd700);
-            color: #000;
-            padding: 14px 25px;
-            font-size: 1.1rem;
-            font-weight: 700;
-        }
+/* Sosmed Box */
+.social-box {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px 0;
+}
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+.social-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #1f1f3a;
+  padding: 14px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+}
 
-        td {
-            padding: 12px 25px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
+.social-item:hover {
+  background: #7b2cbf;
+}
 
-        tr:last-child td {
-            border-bottom: none;
-        }
+.social-svg {
+  width: 22px;
+  height: 22px;
+  fill: #fff;
+}
 
-        td:first-child {
-            font-weight: 500;
-            color: #ffffff;
-        }
-
-        td:last-child {
-            color: #ffd700;
-            font-weight: 600;
-            text-align: right;
-        }
-
-        .fee-section {
-            background: rgba(255, 215, 0, 0.05);
-            border-radius: 16px;
-            border: 1px solid rgba(255, 215, 0, 0.2);
-            padding: 20px 25px;
-            margin-bottom: 20px;
-        }
-
-        .fee-section h3 {
-            color: #ffd700;
-            margin-bottom: 12px;
-            font-size: 1rem;
-        }
-
-        .payment-section {
-            background: rgba(100, 150, 255, 0.05);
-            border-radius: 16px;
-            border: 1px solid rgba(100, 150, 255, 0.2);
-            padding: 20px 25px;
-            margin-bottom: 20px;
-        }
-
-        .payment-section h3 {
-            color: #7fa9ff;
-            margin-bottom: 12px;
-            font-size: 1rem;
-        }
-
-        .groups-section {
-            background: rgba(37, 211, 102, 0.05);
-            border-radius: 16px;
-            border: 1px solid rgba(37, 211, 102, 0.2);
-            padding: 25px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .groups-section h3 {
-            color: #25D366;
-            margin-bottom: 15px;
-            font-size: 1rem;
-        }
-
-        .group-link {
-            display: inline-block;
-            background: linear-gradient(90deg, #25D366, #128C7E);
-            color: #ffffff;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            margin: 6px;
-            transition: transform 0.2s, box-shadow 0.2s;
-            width: 100%;
-            max-width: 280px;
-        }
-
-        .group-link:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(37, 211, 102, 0.6);
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            padding: 25px;
-            color: #777;
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .badge {
-            display: inline-block;
-            background: rgba(0, 200, 100, 0.2);
-            color: #00fa78;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            margin-left: 8px;
-        }
-    </style>
+.note {
+  background: #221a33;
+  padding: 16px;
+  border-radius: 10px;
+  margin: 24px 0;
+  color: #ffd66b;
+  text-align: center;
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="header-images">
-                <img src="https://cdn-icons-png.flaticon.com/512/5034/5034628.png" alt="Robux">
-                <img src="https://cdn-icons-png.flaticon.com/512/3072/3072726.png" alt="Robot">
-            </div>
-            <h1>🏪 WANG STORE — ROBUX</h1>
-            <p class="subtitle">══════════════════════════</p>
-            <p>✅ Terpercaya &nbsp;|&nbsp; ⚡ Proses Cepat</p>
-            
-            <div class="contact-bar">
-                <div class="contact-item">💬 WA: 0895-0331-2050</div>
-                <div class="contact-item">🎮 Discord: ciomuda</div>
-            </div>
+<div class="container">
 
-            <!-- ✅ TOMBOL ORDER SEKARANG -->
-            <a href="https://wa.me/6289503312050?text=Halo%21%20Saya%20ingin%20order%20Robux%20di%20WANG%20STORE" target="_blank" class="order-btn">
-                🛒 ORDER SEKARANG
-            </a>
-            <br><br>
-            
-            <!-- ✅ TOMBOL SALURAN WHATSAPP -->
-            <a href="https://whatsapp.com/channel/0029Vb7vsHf3mFXy5m3Lqo1u" target="_blank" class="channel-link">
-                📢 Ikuti Saluran WhatsApp
-            </a>
-        </header>
+  <!-- BANNER -->
+  <div class="banner-wrap" id="bannerWrap">
+    <div class="scanline"></div>
+    <div class="noise"></div>
 
-        <!-- CATATAN PENTING -->
-        <div class="note-section">
-            <h3>📌 CATATAN PENTING</h3>
-            <p>Halaman ini hanya untuk melihat daftar harga pricelist saja. Klik tombol <strong>"ORDER SEKARANG"</strong> di atas untuk langsung terhubung ke WhatsApp kami. Atau hubungi langsung via WhatsApp: 0895-0331-2050 / Discord: ciomuda. Jangan lupa join saluran WhatsApp dan grup kami untuk update terbaru!</p>
-        </div>
-
-        <!-- LAYANAN KAMI -->
-        <div class="services-section">
-            <h3>📋 LAYANAN KAMI</h3>
-            <p>✅ • Convert<br>✅ • Topup<br>✅ • Midman</p>
-        </div>
-
-        <!-- ROBUX VIA SEND -->
-        <div class="category-section">
-            <div class="category-header">📦 ROBUX VIA SEND <span class="badge">Username</span></div>
-            <table>
-                <tr><td>🔹 100 Robux</td><td>Rp 14.000</td></tr>
-                <tr><td>🔹 200 Robux</td><td>Rp 28.000</td></tr>
-                <tr><td>🔹 300 Robux</td><td>Rp 42.000</td></tr>
-                <tr><td>🔹 400 Robux</td><td>Rp 56.000</td></tr>
-                <tr><td>🔹 500 Robux</td><td>Rp 70.000</td></tr>
-                <tr><td>🔹 600 Robux</td><td>Rp 84.000</td></tr>
-                <tr><td>🔹 700 Robux</td><td>Rp 98.000</td></tr>
-                <tr><td>🔹 800 Robux</td><td>Rp 112.000</td></tr>
-                <tr><td>🔹 900 Robux</td><td>Rp 126.000</td></tr>
-                <tr><td>🔹 1.000 Robux</td><td>Rp 140.000</td></tr>
-            </table>
-        </div>
-
-        <!-- ROBUX GIG -->
-        <div class="category-section">
-            <div class="category-header">📦 ROBUX GIG <span class="badge">Per Satuan</span></div>
-            <table>
-                <tr><td>🔹 1 Robux</td><td>Rp 85</td></tr>
-            </table>
-        </div>
-
-        <!-- ROBUX PAYOUT -->
-        <div class="category-section">
-            <div class="category-header">📦 ROBUX PAYOUT <span class="badge">Grup</span></div>
-            <table>
-                <tr><td>🔹 100 Robux</td><td>Rp 12.000</td></tr>
-                <tr><td>🔹 200 Robux</td><td>Rp 24.000</td></tr>
-                <tr><td>🔹 300 Robux</td><td>Rp 36.000</td></tr>
-                <tr><td>🔹 400 Robux</td><td>Rp 48.000</td></tr>
-                <tr><td>🔹 500 Robux</td><td>Rp 60.000</td></tr>
-                <tr><td>🔹 600 Robux</td><td>Rp 72.000</td></tr>
-                <tr><td>🔹 700 Robux</td><td>Rp 84.000</td></tr>
-                <tr><td>🔹 800 Robux</td><td>Rp 96.000</td></tr>
-                <tr><td>🔹 900 Robux</td><td>Rp 108.000</td></tr>
-                <tr><td>🔹 1.000 Robux</td><td>Rp 120.000</td></tr>
-            </table>
-        </div>
-
-        <!-- ROBUX TCC / Gamepass -->
-        <div class="category-section">
-            <div class="category-header">📦 ROBUX TCC / Gamepass <span class="badge">Tercepat</span></div>
-            <table>
-                <tr><td>🔹 1.000 Robux</td><td>Rp 75.000</td></tr>
-                <tr><td>🔹 2.000 Robux</td><td>Rp 150.000</td></tr>
-                <tr><td>🔹 3.000 Robux</td><td>Rp 225.000</td></tr>
-                <tr><td>🔹 4.000 Robux</td><td>Rp 300.000</td></tr>
-                <tr><td>🔹 5.000 Robux</td><td>Rp 375.000</td></tr>
-                <tr><td>🔹 10.000 Robux</td><td>Rp 750.000</td></tr>
-            </table>
-        </div>
-
-        <!-- ROBUX LOGIN -->
-        <div class="category-section">
-            <div class="category-header">📦 ROBUX LOGIN <span class="badge">Akun Kamu</span></div>
-            <table>
-                <tr><td>🔹 100 Robux</td><td>Rp 15.000</td></tr>
-                <tr><td>🔹 200 Robux</td><td>Rp 30.000</td></tr>
-                <tr><td>🔹 300 Robux</td><td>Rp 45.000</td></tr>
-                <tr><td>🔹 400 Robux</td><td>Rp 60.000</td></tr>
-                <tr><td>🔹 500 Robux</td><td>Rp 75.000</td></tr>
-                <tr><td>🔹 600 Robux</td><td>Rp 90.000</td></tr>
-                <tr><td>🔹 700 Robux</td><td>Rp 100.000</td></tr>
-                <tr><td>🔹 800 Robux</td><td>Rp 120.000</td></tr>
-                <tr><td>🔹 900 Robux</td><td>Rp 135.000</td></tr>
-                <tr><td>🔹 1.000 Robux</td><td>Rp 150.000</td></tr>
-            </table>
-        </div>
-
-        <!-- FEE MIDMAN -->
-        <div class="fee-section">
-            <h3>💸 FEE MIDMAN</h3>
-            <table>
-                <tr><td>1K — 50K</td><td>Rp 2.000</td></tr>
-                <tr><td>50K — 100K</td><td>Rp 3.000</td></tr>
-                <tr><td>100K — 250K</td><td>Rp 4.000</td></tr>
-                <tr><td>250K — 500K</td><td>Rp 5.000</td></tr>
-                <tr><td>500K — 1JT</td><td>Rp 10.000</td></tr>
-                <tr><td>1JT — 10JT</td><td>Rp 25.000</td></tr>
-            </table>
-        </div>
-
-        <!-- PAYMENT -->
-        <div class="payment-section">
-            <h3>💎 METODE PEMBAYARAN</h3>
-            <p style="color:#ccc; line-height:2;">✅ DANA (IDR)<br>✅ QRIS (Semua Pembayaran)<br>✅ PAYPAL (USD)<br>✅ CRYPTO (Semua Jaringan)</p>
-        </div>
-
-        <!-- ✅ LINK GRUB WHATSAPP — PALING BAWAH -->
-        <div class="groups-section">
-            <h3>👾 JOIN GRUB KAMI</h3>
-            <a href="https://chat.whatsapp.com/F5Yf1PK3z27EpRuAKZHJpW" target="_blank" class="group-link">
-                💬 STORE ROBUX V1
-            </a>
-            <br><br>
-            <a href="https://chat.whatsapp.com/Bxrw1A50qZ47fbd4W0hL6H" target="_blank" class="group-link">
-                💬 STORE ROBUX V2
-            </a>
-        </div>
-
-        <footer>
-            <p>⚠️ Harga dapat berubah sewaktu-waktu</p>
-            <p>⏰ Jam Operasional: 08.00 — 23.00 WIB</p>
-            <p style="margin-top: 15px; color: #ffd700; font-weight: 600; font-size: 1.1rem;">🏪 WANG STORE — Semua Kebutuhan Robux Kamu</p>
-        </footer>
+    <div class="banner-text">
+      <h1>WANG STORE</h1>
+      <p>≪ PRESS START ≫</p>
     </div>
+  </div>
+
+  <div class="content">
+    <h2>📋 Pricelist Robux</h2>
+
+    <div class="social-box">
+      <!-- Instagram -->
+      <a href="https://instagram.com/WangStoreOfficial" target="_blank" class="social-item">
+        <svg class="social-svg" viewBox="0 0 24 24">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.695-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.226 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+        Instagram
+      </a>
+
+      <!-- TikTok -->
+      <a href="https://tiktok.com/@wangstore_real.id" target="_blank" class="social-item">
+        <svg class="social-svg" viewBox="0 0 24 24">
+          <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.84 4.84 0 01-1.04-.2z"/>
+        </svg>
+        TikTok
+      </a>
+
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/share/1EYD7uXQWz/" target="_blank" class="social-item">
+        <svg class="social-svg" viewBox="0 0 24 24">
+          <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+        </svg>
+        Facebook
+      </a>
+
+      <!-- Discord -->
+      <div class="social-item">
+        <svg class="social-svg" viewBox="0 0 24 24">
+          <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4977.8727-.6832 1.2495-2.6983-.4083-5.3588-.4083-7.9575 0-.1855-.3768-.4722-.8742-.6832-1.2495a.0741.0741 0 00-.0785-.0371A19.7913 19.7913 0 003.677 4.3698a.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0822.0822 0 00.0312.0561 19.7827 19.7827 0 005.0073 2.5286.0784.0784 0 00.0842-.0276c.3909-.5274.7315-1.1329 1.0176-1.7329a.076.076 0 00-.0416-.1057c-.5288-.1947-1.0659-.456-1.5605-.7695a.0693.0693 0 01-.0731-.0136.0752.0752 0 01-.0262-.0568c-.0124-.1987-.0361-.3943-.0666-.5883a.0757.0757 0 01.0214-.0686c.3476-.2458.7493-.5499 1.1363-.8317a.077.077 0 00.0274-.0615c.0062-.0975.0062-.195.0062-.2925a.0766.0766 0 00-.0274-.0615c-.387-.2818-.7887-.5859-1.1363-.8317a.0757.0757 0 01-.0214-.0686c.0305-.194.0542-.3896.0666-.5883a.0752.0752 0 01.0262-.0568.0693.0693 0 01.0731-.0136c.4946-.3134 1.0317-.5748 1.5605-.7695a.076.076 0 00.0416-.1057c-.2861-.6-.6266-1.2055-1.0176-1.7329a.0784.0784 0 00-.0842-.0276 19.7827 19.7827 0 00-5.0073 2.5286.0822.0822 0 00-.0312.0561c-.4182 4.4779.4342 9.012 3.5457 13.6603a.0699.0699 0 00.0321.0277 19.7913 19.7913 0 004.8851 1.5152.0741.0741 0 00.0785-.0371c.211-.3753.4977-.8727.6832-1.2495 2.6983.4083 5.3588.4083 7.9575 0 .1855.3768.4722.8742.6832 1.2495a.0741.0741 0 00.0785.0371 19.7913 19.7913 0 004.8851-1.5152.0699.0699 0 00.0321-.0277c3.1115-4.6483 3.9639-9.1824 3.5457-13.6603a.0822.0822 0 00-.0312-.0561 19.7827 19.7827 0 00-5.0073-2.5286.0784.0784 0 00-.0842.0276c-.3909.5274-.7315 1.1329-1.0176 1.7329a.076.076 0 00.0416.1057c.5288.1947 1.0659.456 1.5605.7695a.0693.0693 0 01.0731.0136.0752.0752 0 01.0262.0568c.0124.1987.0361.3943.0666.5883a.0757.0757 0 01-.0214.0686c-.3476.2458-.7493.5499-1.1363.8317a.077.077 0 00-.0274.0615c-.0062.0975-.0062.195-.0062.2925a.0766.0766 0 00.0274.0615c.387.2818.7887.5859 1.1363.8317a.0757.0757 0 01.0214.0686c-.0305.194-.0542.3896-.0666.5883a.0752.0752 0 01-.0262.0568.0693.0693 0 01-.0731.0136c-.4946.3134-1.0317.5748-1.5605.7695a.076.076 0 00-.0416.1057c.2861.6.6266 1.2055 1.0176 1.7329a.0784.0784 0 00.0842.0276 19.7827 19.7827 0 005.0073-2.5286.0822.0822 0 00.0312-.0561c.4182-4.4779-.4342-9.012-3.5457-13.6603a.0699.0699 0 00-.0321-.0277zM8.02 15.3312c-1.1825 0-2.1457-1.0693-2.1457-2.3819 0-1.3125.947-2.3818 2.1457-2.3818 1.2108 0 2.1757 1.081 2.1457 2.3818 0 1.3126-.947 2.3819-2.1457 2.3819zm7.96 0c-1.1825 0-2.1457-1.0693-2.1457-2.3819 0-1.3125.947-2.3818 2.1457-2.3818 1.2108 0 2.1757 1.081 2.1457 2.3818 0 1.3126-.9349 2.3819-2.1457 2.3819z"/>
+        </svg>
+        ciomuda
+      </div>
+    </div>
+
+    <div class="note">
+      ⚠️ Hanya gunakan akun resmi di atas! Waspada penipu yang mengatasnamakan WANG STORE
+    </div>
+
+    <h3>📦 ROBUX VIA Send Username</h3>
+    <table>
+      <tr><th>Jumlah Robux</th><th>Harga</th></tr>
+      <tr><td>100 Robux</td><td>Rp 14.000</td></tr>
+      <tr><td>200 Robux</td><td>Rp 28.000</td></tr>
+      <tr><td>300 Robux</td><td>Rp 42.000</td></tr>
+      <tr><td>400 Robux</td><td>Rp 56.000</td></tr>
+      <tr><td>500 Robux</td><td>Rp 70.000</td></tr>
+      <tr><td>600 Robux</td><td>Rp 84.000</td></tr>
+      <tr><td>700 Robux</td><td>Rp 98.000</td></tr>
+      <tr><td>800 Robux</td><td>Rp 112.000</td></tr>
+      <tr><td>900 Robux</td><td>Rp 126.000</td></tr>
+      <tr><td>1.000 Robux</td><td>Rp 140.000</td></tr>
+    </table>
+
+    <h3>📦 ROBUX GIG Per Satuan</h3>
+    <p style="text-align:center;">🔹 1 Robux = Rp 85</p>
+
+    <h3>📦 ROBUX Payout Grup</h3>
+    <table>
+      <tr><th>Jumlah Robux</th><th>Harga</th></tr>
+      <tr><td>100 Robux</td><td>Rp 12.000</td></tr>
+      <tr><td>200 Robux</td><td>Rp 24.000</td></tr>
+      <tr><td>300 Robux</td><td>Rp 36.000</td></tr>
+      <tr><td>400 Robux</td><td>Rp 48.000</td></tr>
+      <tr><td>500 Robux</td><td>Rp 60.000</td></tr>
+      <tr><td>600 Robux</td><td>Rp 72.000</td></tr>
+      <tr><td>700 Robux</td><td>Rp 84.000</td></tr>
+      <tr><td>800 Robux</td><td>Rp 96.000</td></tr>
+      <tr><td>900 Robux</td><td>Rp 108.000</td></tr>
+      <tr><td>1.000 Robux</td><td>Rp 120.000</td></tr>
+    </table>
+
+    <h3>📦 ROBUX TCC / Gamepass Tercepat</h3>
+    <table>
+      <tr><th>Jumlah Robux</th><th>Harga</th></tr>
+      <tr><td>1.000 Robux</td><td>Rp 75.000</td></tr>
+      <tr><td>2.000 Robux</td><td>Rp 150.000</td></tr>
+      <tr><td>3.000 Robux</td><td>Rp 225.000</td></tr>
+      <tr><td>4.000 Robux</td><td>Rp 300.000</td></tr>
+      <tr><td>5.000 Robux</td><td>Rp 375.000</td></tr>
+      <tr><td>10.000 Robux</td><td>Rp 750.000</td></tr>
+    </table>
+
+    <h3>📦 ROBUX Login Akun Kamu</h3>
+    <table>
+      <tr><th>Jumlah Robux</th><th>Harga</th></tr>
+      <tr><td>100 Robux</td><td>Rp 15.000</td></tr>
+      <tr><td>200 Robux</td><td>Rp 30.000</td></tr>
+      <tr><td>300 Robux</td><td>Rp 45.000</td></tr>
+      <tr><td>400 Robux</td><td>Rp 60.000</td></tr>
+      <tr><td>500 Robux</td><td>Rp 75.000</td></tr>
+      <tr><td>600 Robux</td><td>Rp 90.000</td></tr>
+      <tr><td>700 Robux</td><td>Rp 100.000</td></tr>
+      <tr><td>800 Robux</td><td>Rp 120.000</td></tr>
+      <tr><td>900 Robux</td><td>Rp 135.000</td></tr>
+      <tr><td>1.000 Robux</td><td>Rp 150.000</td></tr>
+    </table>
+
+    <h3>💸 Fee Midman</h3>
+    <table>
+      <tr><th>Rentang</th><th>Fee</th></tr>
+      <tr><td>1K – 50K</td><td>Rp 2.000</td></tr>
+      <tr><td>50K – 100K</td><td>Rp 3.000</td></tr>
+      <tr><td>100K – 250K</td><td>Rp 4.000</td></tr>
+      <tr><td>250K – 500K</td><td>Rp 5.000</td></tr>
+      <tr><td>500K – 1JT</td><td>Rp 10.000</td></tr>
+      <tr><td>1JT – 10JT</td><td>Rp 25.000</td></tr>
+    </table>
+
+    <h3>💎 Metode Pembayaran</h3>
+    <table>
+      <tr><th>Metode Pembayaran</th><th>Keterangan</th></tr>
+      <tr><td>DANA</td><td>Transfer ke nomor resmi WANG STORE</td></tr>
+      <tr><td>QRIS</td><td>Scan QR resmi yang dikirim admin</td></tr>
+      <tr><td>PayPal</td><td>Transfer ke akun PayPal resmi</td></tr>
+      <tr><td>Crypto</td><td>Transfer ke alamat crypto yang dikonfirmasi admin</td></tr>
+    </table>
+
+    <div class="note">
+      📌 Hubungi kami lewat sosial media resmi di atas untuk pemesanan
+    </div>
+  </div>
+</div>
+
+<script>
+const bannerWrap = document.getElementById('bannerWrap');
+
+function buatBintang() {
+  const star = document.createElement('div');
+  star.className = 'star-random';
+  star.innerText = '★';
+
+  // Zona atas (0‑30%) dan zona bawah (70‑95%)
+  let top;
+  if(Math.random() > 0.5){
+    top = Math.random() * 30;
+  }else{
+    top = 70 + Math.random() * 25;
+  }
+  const left = Math.random() * 92;
+
+  star.style.left = left + '%';
+  star.style.top = top + '%';
+
+  bannerWrap.appendChild(star);
+
+  setTimeout(() => {
+    star.remove();
+  }, 2200);
+}
+
+setInterval(buatBintang, 180);
+</script>
+
 </body>
-  </html>
-              
+</html>
