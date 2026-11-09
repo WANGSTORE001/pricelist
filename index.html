@@ -193,6 +193,44 @@ th {
   color: #ffd66b;
   text-align: center;
 }
+
+/* ===== FORM PESANAN ===== */
+.order-form {
+  background:#1c1c30;
+  padding:20px;
+  border-radius:12px;
+  margin-top:30px;
+}
+.order-form input, .order-form select {
+  width:100%;
+  padding:12px;
+  margin:8px 0;
+  border-radius:8px;
+  border:none;
+}
+.btn-kirim {
+  background:#ff9f1c;
+  color:#111;
+  border:none;
+  padding:12px 20px;
+  border-radius:10px;
+  font-weight:bold;
+  cursor:pointer;
+}
+.btn-kirim:hover {
+  background:#e88e0f;
+}
+.btn-pilih-row {
+  background:#4a88ff;
+  color:white;
+  border:none;
+  padding:6px 10px;
+  border-radius:6px;
+  cursor:pointer;
+}
+.btn-pilih-row:hover {
+  background:#2c66d8;
+}
 </style>
 </head>
 <body>
@@ -240,7 +278,7 @@ th {
       <!-- Discord -->
       <div class="social-item">
         <svg class="social-svg" viewBox="0 0 24 24">
-          <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4977.8727-.6832 1.2495-2.6983-.4083-5.3588-.4083-7.9575 0-.1855-.3768-.4722-.8742-.6832-1.2495a.0741.0741 0 00-.0785-.0371A19.7913 19.7913 0 003.677 4.3698a.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0822.0822 0 00.0312.0561 19.7827 19.7827 0 005.0073 2.5286.0784.0784 0 00.0842-.0276c.3909-.5274.7315-1.1329 1.0176-1.7329a.076.076 0 00-.0416-.1057c-.5288-.1947-1.0659-.456-1.5605-.7695a.0693.0693 0 01-.0731-.0136.0752.0752 0 01-.0262-.0568c-.0124-.1987-.0361-.3943-.0666-.5883a.0757.0757 0 01.0214-.0686c.3476-.2458.7493-.5499 1.1363-.8317a.077.077 0 00.0274-.0615c.0062-.0975.0062-.195.0062-.2925a.0766.0766 0 00-.0274-.0615c-.387-.2818-.7887-.5859-1.1363-.8317a.0757.0757 0 01-.0214-.0686c.0305-.194.0542-.3896.0666-.5883a.0752.0752 0 01.0262-.0568.0693.0693 0 01.0731-.0136c.4946-.3134 1.0317-.5748 1.5605-.7695a.076.076 0 00.0416-.1057c-.2861-.6-.6266-1.2055-1.0176-1.7329a.0784.0784 0 00-.0842-.0276 19.7827 19.7827 0 00-5.0073 2.5286.0822.0822 0 00-.0312.0561c-.4182 4.4779.4342 9.012 3.5457 13.6603a.0699.0699 0 00.0321.0277 19.7913 19.7913 0 004.8851 1.5152.0741.0741 0 00.0785-.0371c.211-.3753.4977-.8727.6832-1.2495 2.6983.4083 5.3588.4083 7.9575 0 .1855.3768.4722.8742.6832 1.2495a.0741.0741 0 00.0785.0371 19.7913 19.7913 0 004.8851-1.5152.0699.0699 0 00.0321-.0277c3.1115-4.6483 3.9639-9.1824 3.5457-13.6603a.0822.0822 0 00-.0312-.0561 19.7827 19.7827 0 00-5.0073-2.5286.0784.0784 0 00-.0842.0276c-.3909.5274-.7315 1.1329-1.0176 1.7329a.076.076 0 00.0416.1057c.5288.1947 1.0659.456 1.5605.7695a.0693.0693 0 01.0731.0136.0752.0752 0 01.0262.0568c.0124.1987.0361.3943.0666.5883a.0757.0757 0 01-.0214.0686c-.3476.2458-.7493.5499-1.1363.8317a.077.077 0 00-.0274.0615c-.0062.0975-.0062.195-.0062.2925a.0766.0766 0 00.0274.0615c.387.2818.7887.5859 1.1363.8317a.0757.0757 0 01.0214.0686c-.0305.194-.0542.3896-.0666.5883a.0752.0752 0 01-.0262.0568.0693.0693 0 01-.0731.0136c-.4946.3134-1.0317.5748-1.5605.7695a.076.076 0 00-.0416.1057c.2861.6.6266 1.2055 1.0176 1.7329a.0784.0784 0 00.0842.0276 19.7827 19.7827 0 005.0073-2.5286.0822.0822 0 00.0312-.0561c.4182-4.4779-.4342-9.012-3.5457-13.6603a.0699.0699 0 00-.0321-.0277zM8.02 15.3312c-1.1825 0-2.1457-1.0693-2.1457-2.3819 0-1.3125.947-2.3818 2.1457-2.3818 1.2108 0 2.1757 1.081 2.1457 2.3818 0 1.3126-.947 2.3819-2.1457 2.3819zm7.96 0c-1.1825 0-2.1457-1.0693-2.1457-2.3819 0-1.3125.947-2.3818 2.1457-2.3818 1.2108 0 2.1757 1.081 2.1457 2.3818 0 1.3126-.9349 2.3819-2.1457 2.3819z"/>
+          <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4977.8727-.6832 1.2495-2.6983-.4083-5.3588-.4083-7.9575 0-.1855-.3768-.4722-.8742-.6832-1.2495a.0741.0741 0 00-.0785-.0371A19.7913 19.7913 0 003.677 4.3698a.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0822.0822 0 00.0312.0561 19.7827 19.7827 0 005.0073 2.5286.0784.0784 0 00.0842-.0276c.3909-.5274.7315-1.1329 1.0176-1.7329a.076.076 0 00-.0416-.1057c-.5288-.1947-1.0659-.456-1.5605-.7695a.0693.0693 0 01-.0731-.0136.0752.0752 0 01-.0262-.0568c-.0124-.1987-.0361-.3943-.0666-.5883a.0757.0757 0 01.0214-.0686c.3476-.2458.7493-.5499 1.1363-.8317a.077.077 0 00.0274-.0615c.0062-.0975.0062-.195.0062-.2925a.0766.0766 0 00-.0274-.0615c-.387-.2818-.7887-.5859-1.1363-.8317a.0757.0757 0 01-.0214-.0686c.0305-.194.0542-.3896.0666-.5883a.0752.0752 0 01.0262-.0568.0693.0693 0 01-.0731-.0136c.4946-.3134 1.0317-.5748 1.5605-.7695a.076.076 0 00.0416-.1057c.2861-.6.6266-1.2055 1.0176-1.7329a.0784.0784 0 00.0842-.0276 19.7827 19.7827 0 005.0073-2.5286.0822.0822 0 00-.0312-.0561c-.4182 4.4779.4342 9.012 3.5457 13.6603a.0699.0699 0 00.0321.0277zM8.02 15.3312c-1.1825 0-2.1457-1.0693-2.1457-2.3819 0-1.3125.947-2.3818 2.1457-2.3818 1.2108 0 2.1757 1.081 2.1457 2.3818 0 1.3126-.947 2.3819-2.1457 2.3819zm7.96 0c-1.1825 0-2.1457-1.0693-2.1457-2.3819 0-1.3125.947-2.3818 2.1457-2.3818 1.2108 0 2.1757 1.081 2.1457 2.3818 0 1.3126-.9349 2.3819-2.1457 2.3819z"/>
         </svg>
         ciomuda
       </div>
@@ -252,61 +290,58 @@ th {
 
     <h3>📦 ROBUX VIA Send Username</h3>
     <table>
-      <tr><th>Jumlah Robux</th><th>Harga</th></tr>
-      <tr><td>100 Robux</td><td>Rp 14.000</td></tr>
-      <tr><td>200 Robux</td><td>Rp 28.000</td></tr>
-      <tr><td>300 Robux</td><td>Rp 42.000</td></tr>
-      <tr><td>400 Robux</td><td>Rp 56.000</td></tr>
-      <tr><td>500 Robux</td><td>Rp 70.000</td></tr>
-      <tr><td>600 Robux</td><td>Rp 84.000</td></tr>
-      <tr><td>700 Robux</td><td>Rp 98.000</td></tr>
-      <tr><td>800 Robux</td><td>Rp 112.000</td></tr>
-      <tr><td>900 Robux</td><td>Rp 126.000</td></tr>
-      <tr><td>1.000 Robux</td><td>Rp 140.000</td></tr>
+      <tr><th>Jumlah Robux</th><th>Harga</th><th>Aksi</th></tr>
+      <tr><td>100 Robux</td><td>Rp 14.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Send Username | 100 Robux',14000)">Pilih</button></td></tr>
+      <tr><td>200 Robux</td><td>Rp 28.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Send Username | 200 Robux',28000)">Pilih</button></td></tr>
+      <tr><td>300 Robux</td><td>Rp 42.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Send Username | 300 Robux',42000)">Pilih</button></td></tr>
+      <tr><td>400 Robux</td><td>Rp 56.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Send Username | 400 Robux',56000)">Pilih</button></td></tr>
+      <tr><td>500 Robux</td><td>Rp 70.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Send Username | 500 Robux',70000)">Pilih</button></td></tr>
+      <tr><td>600 Robux</td><td>Rp 84.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Send Username | 600 Robux',84000)">Pilih</button></td></tr>
+      <tr><td>700 Robux</td><td>Rp 98.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Send Username | 700 Robux',98000)">Pilih</button></td></tr>
+      <tr><td>800 Robux</td><td>Rp 112.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Send Username | 800 Robux',112000)">Pilih</button></td></tr>
+      <tr><td>900 Robux</td><td>Rp 126.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Send Username | 900 Robux',126000)">Pilih</button></td></tr>
+      <tr><td>1.000 Robux</td><td>Rp 140.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Send Username | 1000 Robux',140000)">Pilih</button></td></tr>
     </table>
-
-    <h3>📦 ROBUX GIG Per Satuan</h3>
-    <p style="text-align:center;">🔹 1 Robux = Rp 85</p>
 
     <h3>📦 ROBUX Payout Grup</h3>
     <table>
-      <tr><th>Jumlah Robux</th><th>Harga</th></tr>
-      <tr><td>100 Robux</td><td>Rp 12.000</td></tr>
-      <tr><td>200 Robux</td><td>Rp 24.000</td></tr>
-      <tr><td>300 Robux</td><td>Rp 36.000</td></tr>
-      <tr><td>400 Robux</td><td>Rp 48.000</td></tr>
-      <tr><td>500 Robux</td><td>Rp 60.000</td></tr>
-      <tr><td>600 Robux</td><td>Rp 72.000</td></tr>
-      <tr><td>700 Robux</td><td>Rp 84.000</td></tr>
-      <tr><td>800 Robux</td><td>Rp 96.000</td></tr>
-      <tr><td>900 Robux</td><td>Rp 108.000</td></tr>
-      <tr><td>1.000 Robux</td><td>Rp 120.000</td></tr>
+      <tr><th>Jumlah Robux</th><th>Harga</th><th>Aksi</th></tr>
+      <tr><td>100 Robux</td><td>Rp 12.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Payout Grup | 100 Robux',12000)">Pilih</button></td></tr>
+      <tr><td>200 Robux</td><td>Rp 24.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Payout Grup | 200 Robux',24000)">Pilih</button></td></tr>
+      <tr><td>300 Robux</td><td>Rp 36.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Payout Grup | 300 Robux',36000)">Pilih</button></td></tr>
+      <tr><td>400 Robux</td><td>Rp 48.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Payout Grup | 400 Robux',48000)">Pilih</button></td></tr>
+      <tr><td>500 Robux</td><td>Rp 60.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Payout Grup | 500 Robux',60000)">Pilih</button></td></tr>
+      <tr><td>600 Robux</td><td>Rp 72.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Payout Grup | 600 Robux',72000)">Pilih</button></td></tr>
+      <tr><td>700 Robux</td><td>Rp 84.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Payout Grup | 700 Robux',84000)">Pilih</button></td></tr>
+      <tr><td>800 Robux</td><td>Rp 96.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Payout Grup | 800 Robux',96000)">Pilih</button></td></tr>
+      <tr><td>900 Robux</td><td>Rp 108.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Payout Grup | 900 Robux',108000)">Pilih</button></td></tr>
+      <tr><td>1.000 Robux</td><td>Rp 120.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Payout Grup | 1000 Robux',120000)">Pilih</button></td></tr>
     </table>
 
     <h3>📦 ROBUX TCC / Gamepass Tercepat</h3>
     <table>
-      <tr><th>Jumlah Robux</th><th>Harga</th></tr>
-      <tr><td>1.000 Robux</td><td>Rp 75.000</td></tr>
-      <tr><td>2.000 Robux</td><td>Rp 150.000</td></tr>
-      <tr><td>3.000 Robux</td><td>Rp 225.000</td></tr>
-      <tr><td>4.000 Robux</td><td>Rp 300.000</td></tr>
-      <tr><td>5.000 Robux</td><td>Rp 375.000</td></tr>
-      <tr><td>10.000 Robux</td><td>Rp 750.000</td></tr>
+      <tr><th>Jumlah Robux</th><th>Harga</th><th>Aksi</th></tr>
+      <tr><td>1.000 Robux</td><td>Rp 75.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('TCC/Gamepass | 1000 Robux',75000)">Pilih</button></td></tr>
+      <tr><td>2.000 Robux</td><td>Rp 150.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('TCC/Gamepass | 2000 Robux',150000)">Pilih</button></td></tr>
+      <tr><td>3.000 Robux</td><td>Rp 225.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('TCC/Gamepass | 3000 Robux',225000)">Pilih</button></td></tr>
+      <tr><td>4.000 Robux</td><td>Rp 300.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('TCC/Gamepass | 4000 Robux',300000)">Pilih</button></td></tr>
+      <tr><td>5.000 Robux</td><td>Rp 375.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('TCC/Gamepass | 5000 Robux',375000)">Pilih</button></td></tr>
+      <tr><td>10.000 Robux</td><td>Rp 750.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('TCC/Gamepass | 10000 Robux',750000)">Pilih</button></td></tr>
     </table>
 
     <h3>📦 ROBUX Login Akun Kamu</h3>
     <table>
-      <tr><th>Jumlah Robux</th><th>Harga</th></tr>
-      <tr><td>100 Robux</td><td>Rp 15.000</td></tr>
-      <tr><td>200 Robux</td><td>Rp 30.000</td></tr>
-      <tr><td>300 Robux</td><td>Rp 45.000</td></tr>
-      <tr><td>400 Robux</td><td>Rp 60.000</td></tr>
-      <tr><td>500 Robux</td><td>Rp 75.000</td></tr>
-      <tr><td>600 Robux</td><td>Rp 90.000</td></tr>
-      <tr><td>700 Robux</td><td>Rp 100.000</td></tr>
-      <tr><td>800 Robux</td><td>Rp 120.000</td></tr>
-      <tr><td>900 Robux</td><td>Rp 135.000</td></tr>
-      <tr><td>1.000 Robux</td><td>Rp 150.000</td></tr>
+      <tr><th>Jumlah Robux</th><th>Harga</th><th>Aksi</th></tr>
+      <tr><td>100 Robux</td><td>Rp 15.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Login Akun | 100 Robux',15000)">Pilih</button></td></tr>
+      <tr><td>200 Robux</td><td>Rp 30.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Login Akun | 200 Robux',30000)">Pilih</button></td></tr>
+      <tr><td>300 Robux</td><td>Rp 45.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Login Akun | 300 Robux',45000)">Pilih</button></td></tr>
+      <tr><td>400 Robux</td><td>Rp 60.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Login Akun | 400 Robux',60000)">Pilih</button></td></tr>
+      <tr><td>500 Robux</td><td>Rp 75.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Login Akun | 500 Robux',75000)">Pilih</button></td></tr>
+      <tr><td>600 Robux</td><td>Rp 90.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Login Akun | 600 Robux',90000)">Pilih</button></td></tr>
+      <tr><td>700 Robux</td><td>Rp 100.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Login Akun | 700 Robux',100000)">Pilih</button></td></tr>
+      <tr><td>800 Robux</td><td>Rp 120.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Login Akun | 800 Robux',120000)">Pilih</button></td></tr>
+      <tr><td>900 Robux</td><td>Rp 135.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Login Akun | 900 Robux',135000)">Pilih</button></td></tr>
+      <tr><td>1.000 Robux</td><td>Rp 150.000</td><td><button class="btn-pilih-row" onclick="pilihPaket('Login Akun | 1000 Robux',150000)">Pilih</button></td></tr>
     </table>
 
     <h3>💸 Fee Midman</h3>
@@ -332,18 +367,75 @@ th {
     <div class="note">
       📌 Hubungi kami lewat sosial media resmi di atas untuk pemesanan
     </div>
+
+    <!-- ===== FORM PESANAN ===== -->
+    <div class="order-form">
+      <h3>📝 Form Pemesanan</h3>
+      <input type="text" id="namaPembeli" placeholder="Username Roblox / Nama Pembeli">
+      <input type="text" id="paketTerpilih" placeholder="Paket yang dipilih (otomatis terisi)" readonly>
+      <input type="number" id="jumlah" placeholder="Jumlah" min="1" value="1">
+      <select id="metodeBayar">
+        <option value="">Pilih Metode Pembayaran</option>
+        <option value="dana">DANA</option>
+        <option value="qris">QRIS</option>
+        <option value="paypal">PayPal</option>
+        <option value="crypto">Crypto</option>
+      </select>
+      <button class="btn-kirim" onclick="kirimPesanan()">Kirim Pesanan ke WhatsApp</button>
+    </div>
   </div>
 </div>
 
 <script>
-const bannerWrap = document.getElementById('bannerWrap');
+let namaPaket = "";
+let hargaSatuan = 0;
 
+// Fungsi pilih paket
+function pilihPaket(nama, harga){
+  namaPaket = nama;
+  hargaSatuan = harga;
+  document.getElementById("paketTerpilih").value = nama + " | Rp " + harga.toLocaleString('id-ID');
+  alert("✅ Paket telah dipilih: " + nama);
+}
+
+// Fungsi kirim ke WhatsApp
+function kirimPesanan(){
+  const namaPembeli = document.getElementById("namaPembeli").value.trim();
+  const jumlah = parseInt(document.getElementById("jumlah").value);
+  const metode = document.getElementById("metodeBayar").value;
+
+  if(!namaPembeli){
+    alert("⚠️ Isi Username / Nama Pembeli terlebih dahulu!");
+    return;
+  }
+  if(!namaPaket){
+    alert("⚠️ Pilih paket terlebih dahulu!");
+    return;
+  }
+  if(!metode){
+    alert("⚠️ Pilih metode pembayaran!");
+    return;
+  }
+
+  const total = hargaSatuan * jumlah;
+  const pesan = `Halo WANG STORE, saya ingin memesan%0A` +
+                `👤 Username: ${namaPembeli}%0A` +
+                `📦 Paket: ${namaPaket}%0A` +
+                `🔢 Jumlah: ${jumlah}%0A` +
+                `💰 Total: Rp ${total.toLocaleString('id-ID')}%0A` +
+                `💳 Metode: ${metode}`;
+
+  // Nomor WA sudah diisi: 6289503312050
+  window.open(`https://wa.me/6289503312050?text=${pesan}`, "_blank");
+}
+
+// ⭐ Bintang animasi
+const bannerWrap = document.getElementById('bannerWrap');
 function buatBintang() {
   const star = document.createElement('div');
   star.className = 'star-random';
   star.innerText = '★';
 
-  // Zona atas (0‑30%) dan zona bawah (70‑95%)
   let top;
   if(Math.random() > 0.5){
     top = Math.random() * 30;
@@ -367,3 +459,4 @@ setInterval(buatBintang, 180);
 
 </body>
 </html>
+
